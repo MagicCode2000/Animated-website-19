@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.Home{
+    position: relative;
+    min-height: 100vh;
+    background-color: #ebebeb;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 90px;
+    overflow: hidden;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    padding: 35px 90px;
+    opacity: 0;
+    animation: to_bottom 1s ease forwards;
+}
+header nav a{
+    font-size: 26px;
+    color: black;
+    margin-left: 70px;
+    transition: .3s;
+}
+header nav .active,
+header nav a:hover{
+    color: #4951ec;
+}
+.text-box{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    align-items: end;
+    z-index: 99;
+}
+.text-box h1{
+    color: #4951ec;
+    font-size: 80px;
+    animation: to_left 1s ease forwards 1.3s;
+}
+.text-box h1:nth-child(2){
+    color: black;
+    font-size: 55px;
+    animation-delay: 1.5s;
+}
+.text-box p{
+    margin: 35px 0;
+    font-size: 24px;
+    width: 82%;
+    color: #979797;
+    animation: to_left 1s ease forwards 1.7s;
+}
+.btn-box{
+    display: flex;
+    gap: 20px;
+}
+.btn{
+    position: relative;
+    color: black;
+    padding: 13px 35px;
+    font-size: 24px;
+    border: 2px solid #4951ec;
+    background: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .3s;
+    animation: to_left 1s ease forwards 1.9s;
+}
+.btn:hover,
+.btn:nth-child(2){
+    color: white;
+    background-color: #4951ec;
+    box-shadow: 0 0 15px #4951ec;
+}
+.btn:nth-child(2):hover{
+    color: black;
+    background: transparent;
+    box-shadow: none;
+}
+.Home img{
+    position: absolute;
+    pointer-events: none;
+}
+.person,
+.books{
+    left: 0;
+    bottom: 0;
+    height: 100%;
+}
+.person{
+    animation: fade 1.5s ease forwards, person 8s ease-in-out infinite 1s;
+}
+.objects{
+    height: 100%;
+    bottom: 50px;
+    left: 10px;
+    opacity: 0;
+    animation: fade 1s ease forwards 1s, rotate 8s linear infinite;
+}
+.leaf{
+    left: 140px;
+    bottom: 98px;
+    height: 280px;
+    transform-origin: 100% 100%;
+    transform: scale(0);
+    animation: leaf 1s ease forwards .3s;
+}
+.text-box *{
+    opacity: 0;
+}
+.text-box span{
+    opacity: 1;
+}
+/* keyframes */
+@keyframes to_bottom {
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes to_left {
+    0%{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes leaf {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+@keyframes person {
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-50px);
+    }
+}
